@@ -62,8 +62,9 @@ public class PolynomialEquationSolver {
 	}
 
 	/*
-	 * Using newton's method to find root. f'(x) should always be positive or
-	 * negative.
+	 * Using Newton's method to find left and right bound and then finding the root
+	 * with binary search. f'(x) should be for all x either positive or negative.
+	 * Search in (-infinite, infinite).
 	 */
 	private static double[] searchRoot(PolynomialFunction polynomialFunction) throws Exception {
 //		System.out.println("searchRoot");
@@ -152,7 +153,9 @@ public class PolynomialEquationSolver {
 	}
 
 	/*
-	 * search in interval [startingPoint, double_max)
+	 * Using Newton's method to find left and right bound and then find the root
+	 * with binary search. Search in interval [startingPoint, double_max). f'(x)
+	 * should be (for all x in the interval) either positive or negative.
 	 */
 	private static double[] searchRootRightward(PolynomialFunction polynomialFunction, double startingPoint)
 			throws Exception {
@@ -190,7 +193,9 @@ public class PolynomialEquationSolver {
 	}
 
 	/*
-	 * search in interval (-double_max, startingPoint]
+	 * Using Newton's method to find left and right bound and then finding the root
+	 * with binary search. Search in interval (-double_max, startingPoint]. f'(x)
+	 * should be (for all x in the interval) either positive or negative.
 	 */
 	private static double[] searchRootLeftward(PolynomialFunction polynomialFunction, double startingPoint)
 			throws Exception {
