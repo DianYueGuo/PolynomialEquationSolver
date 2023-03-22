@@ -23,6 +23,25 @@ public class PolynomialFunction {
 		}
 	}
 
+	@Override
+	public PolynomialFunction clone() {
+		return new PolynomialFunction(coefficients);
+	}
+
+	public PolynomialFunction power(int exponent) throws Exception {
+		if(exponent < 0) {
+			throw new Exception("exponent can't be negative");
+		}
+		
+		PolynomialFunction p = new PolynomialFunction(1);
+		
+		for(int i = 0; i < exponent; i++) {
+			p = p.multiply(this);
+		}
+		
+		return p;
+	}
+
 	public PolynomialFunction multiply(PolynomialFunction polynomialFunction) {
 		double[] coefficients = new double[this.getDegree() + polynomialFunction.getDegree() + 1];
 
