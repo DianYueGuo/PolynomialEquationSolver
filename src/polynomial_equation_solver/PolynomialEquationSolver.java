@@ -106,7 +106,7 @@ public class PolynomialEquationSolver {
 //		System.out.println("binarySearchRoot");
 
 		if (leftBound > rightBound) {
-			throw new Exception();
+			throw new Exception("leftBound can't be larger than rightBound");
 		}
 
 		double leftValue = polynomialFunction.getFunctionValue(leftBound);
